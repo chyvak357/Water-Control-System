@@ -9,27 +9,20 @@
 <script src="require.js"></script>
 <script>
 
-
-    //var particle;
-    //var Particle = require('particle-api-js');
-
-	// Вот тут мы вызываем  функции
+	// В этом блоке, под require вызываются  функции
     require(['https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js'], function (api) {
 
         var Particle = api;
         var particle = new Particle();
         var token;
 
-        particle.login({username: 'chyvak357@gmail.com', password: '47904790'}).then(
+        particle.login({username: '***********', password: '**********'}).then(
             function(data) {
                 // Только в этом месте есть токен
                 token = data.body.access_token;
                 console.log('login success 1', token);
-                // list(particle, token);
             }).then(function (data){
             	token = data.body.access_token;
-
-
 
 			}).then(function (err) {
             	console.log('Could not log in.', err);
@@ -37,29 +30,13 @@
 		);
 
         console.log('login success 2', token);
-
-        //list(particle, token);
-
-
-
-        /*
-        particle.signalDevice({ deviceId: '4d0046000e51353532343635', signal: true, auth: token }).then(function(data) {
-            console.log('Device is shouting rainbows:', data);
-        }, function(err) {
-            console.log('Error sending a signal to the device:', err);
-        });
-        */
     });
 
 
-	// Вот тут мы описывем функции
+	// Описываем функции
     function list(particle, token) {
         var devicesPr = particle.listDevices({ auth: token });
-
-        //	var token;
         console.log('login success 2 ', token);
-
-
         devicesPr.then(
             function(devices){
                 console.log('Devices: ', devices);
@@ -68,8 +45,6 @@
                 console.log('List devices call failed: ', err);
             }
         );
-
-
     };
 
 
