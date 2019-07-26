@@ -261,7 +261,7 @@ void checkState(){
         // Звуковой сигнал...  Вместо этого будет просто гореть лампочка
 
     } else {
-      Serial.printf("FUCK YOU\n");
+      Serial.printf("SMT gone wrong\n");
     }
 
 
