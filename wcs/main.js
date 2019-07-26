@@ -1,31 +1,8 @@
-
-// Вот эта поебень должна вызываться всегда, перед работой с устройством. 
-// Только из неё можно вызвать что-то связанное с устройством.
-
-const DEVICE_ID = "4d0046000e51353532343635";
-const LOGIN =  "chyvak357@gmail.com";
-const PASS = "47904790";
-/*
-require(['https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js'], function (api) {
-
-    var Particle = api;
-    var particle = new Particle();
-
-    particle.login({username: 'chyvak357@gmail.com', password: '47904790'}).then(
-        function(data) {
-            var token = data.body.access_token;
-            console.log('login success 1', token);
-            list(particle, token);
-        },
-        function (err) {
-            console.log('Could not log in.', err);
-        }
-    );
-
-});*/
+const DEVICE_ID = "*********";
+const LOGIN =  "**********";
+const PASS = "********";
 
 function ButtonManualControl(identifier) {
-    // alert("Switch is called!");
     require(['https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js'], function (api) {
         identifier.style.background = 'greenyellow'; // Жёлтый цвет кнопки при первом нажатии
         var Particle = api;
@@ -214,7 +191,6 @@ function updateValues() {
                     // document.getElementById("currentLVL").value = data.body.result; // Это на сотку умножать
 
                     tempPercentLvL /= document.getElementById("TankHeight").value;
-                    // document.getElementById("TankHeight").value; // на это делить будем
                     document.getElementById("percentLVL").value = Math.round(tempPercentLvL) + '%';
                     bars.forEach((bar) => {
                         bar.style.width = Math.round(tempPercentLvL) + '%';
@@ -256,7 +232,6 @@ function updateValues() {
                         element.value = "ТРЕВОГА";
                         element.style.background = 'red';
                     } else {
-                        // document.getElementById("alarmFlag").value = "Всё в норме";
                         element.value = "Всё в норме";
                         element.style.background = 'yellowgreen';
                     }
@@ -300,17 +275,6 @@ function updateValues() {
 
     });
 
-    // // Считает проценты для строки состояний
-    // let tempPercentLvL = + document.getElementById("currentLVL").value;
-    // tempPercentLvL *= 100;
-    // // document.getElementById("currentLVL").value = data.body.result; // Это на сотку умножать
-    //
-    // tempPercentLvL /= document.getElementById("TankHeight").value;
-    // // document.getElementById("TankHeight").value; // на это делить будем
-    // document.getElementById("percentLVL").value = tempPercentLvL + '%';
-    // bars.forEach((bar) => {
-    //     bar.style.width = tempPercentLvL + '%';
-    // })
 }
 
 
@@ -326,13 +290,3 @@ function ButtonCloseUpdate(element) {
         element.style.value = 'Включить обновление данных';
     }
 }
-
-
-
-
-// const bars = document.querySelectorAll('.bar');
-// const progress = document.querySelectorAll('.progress');
-//
-// bars.forEach((bar, index) => {
-//     bar.style.width = '80%';
-// })
